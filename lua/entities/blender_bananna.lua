@@ -1,7 +1,7 @@
 AddCSLuaFile()
 ENT.Type			= "anim"
 ENT.Base			= "base_anim"
-ENT.PrintName	   	= "Blender Bananna"
+ENT.PrintName	   	= "Blender Banana"
 ENT.Category = "Let's Blend"
 
 ENT.RenderGroup = RENDERGROUP_BOTH
