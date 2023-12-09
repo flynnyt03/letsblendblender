@@ -1,0 +1,33 @@
+AddCSLuaFile()
+ENT.Type			= "anim"
+ENT.Base			= "base_anim"
+ENT.PrintName	   	= "Blender Glass Bottle"
+ENT.Category = "Let's Blend"
+
+ENT.RenderGroup = RENDERGROUP_BOTH
+ENT.Spawnable		= true
+
+if SERVER then
+    function ENT:Initialize()
+
+        self:SetModel( 'models/props_junk/garbage_glassbottle001a.mdl' )
+        self:PhysicsInit(SOLID_VPHYSICS)
+        self:SetMoveType(MOVETYPE_VPHYSICS)
+        self:SetSolid(SOLID_VPHYSICS)
+        local phys = self:GetPhysicsObject()
+
+        if !phys:IsValid() then 
+            phys:Wake()
+        end
+    end
+end
+
+if CLIENT then
+    function ENT:Draw()
+        self:DrawModel()
+    end
+end
+
+function ENT:Use( ply )
+    ply:PickupObject( self )
+end
